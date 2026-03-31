@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Code Calfo</title>
 
@@ -9,36 +9,73 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';scroll-behavior:smooth}
 body{background:#f5f7fa;color:#333}
 
-header{position:fixed;width:100%;top:0;background:#fff;padding:15px 50px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000}
+/* HEADER */
+header{
+position:fixed;width:100%;top:0;background:#fff;
+padding:15px 50px;display:flex;justify-content:space-between;
+align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;
+}
 header h1{color:#0077b6}
 nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500}
 nav a:hover{color:#0077b6}
 
-.hero{height:100vh;position:relative;overflow:hidden}
-.slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;opacity:0;transition:1s}
-.slide.active{opacity:1}
-.overlay{background:rgba(0,0,0,0.6);padding:25px;border-radius:10px}
+/* FULL PAGE SECTIONS */
+.page{
+min-height:100vh;
+padding:120px 50px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
 
-.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;padding:10px;cursor:pointer}
-.prev{left:10px}
-.next{right:10px}
+/* HERO */
+.hero{background:#0077b6;color:#fff}
+.hero h2{font-size:45px}
 
-.btn{padding:12px 25px;background:#00b4d8;border:none;color:#fff;border-radius:5px;cursor:pointer}
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;margin-top:40px;width:100%;
+max-width:1100px;
+}
 
-section{padding:100px 50px;text-align:center}
+.box{
+background:#fff;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+.box:hover{transform:translateY(-10px)}
 
-#services,#faq{background:#eef3f7}
+/* STATS */
+.stats{background:#0077b6;color:#fff}
+.counter{font-size:40px;font-weight:bold}
 
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
-.service-box{background:#fff;padding:25px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s}
-.service-box:hover{transform:translateY(-8px)}
+/* FAQ */
+.faq-box{cursor:pointer}
 
-.counter{font-size:30px;font-weight:bold;color:#0077b6}
+/* CONTACT */
+input,textarea{
+width:300px;padding:12px;margin:10px;
+border:1px solid #ccc;border-radius:5px;
+}
 
-footer{background:#0d1b2a;color:#fff;padding:50px;text-align:center}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
+button{
+padding:12px 25px;background:#00b4d8;border:none;
+color:#fff;border-radius:5px;cursor:pointer;
+}
 
-@media(max-width:768px){section{padding:70px 20px}}
+/* WHATSAPP */
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25d366;color:#fff;padding:15px;
+border-radius:50%;
+}
+
 </style>
 </head>
 
@@ -58,139 +95,138 @@ footer{background:#0d1b2a;color:#fff;padding:50px;text-align:center}
 </header>
 
 <!-- HOME -->
-<div class="hero" id="home">
-
-<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')"><div class="overlay"><h2>Digital Solutions</h2></div></div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c')"><div class="overlay"><h2>Software Development</h2></div></div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')"><div class="overlay"><h2>Ecommerce</h2></div></div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c')"><div class="overlay"><h2>Marketing</h2></div></div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d')"><div class="overlay"><h2>SEO</h2></div></div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f')"><div class="overlay"><h2>Design</h2></div></div>
-
-<button class="slider-btn prev" onclick="prevSlide()">❮</button>
-<button class="slider-btn next" onclick="nextSlide()">❯</button>
-
-</div>
+<section id="home" class="page hero">
+<h2>Build Your Digital Business</h2>
+<p>Web, Software & Automation Solutions</p>
+</section>
 
 <!-- ABOUT -->
-<section id="about" style="min-height:100vh;display:flex;align-items:center;background:#f8fbff;">
-
-<div style="max-width:1100px;margin:auto;text-align:left;">
-
-<h2 style="font-size:40px;color:#0077b6;margin-bottom:20px;">About Code Calfo</h2>
-
-<p style="font-size:18px;line-height:1.8;margin-bottom:20px;">
-Code Calfo is a professional web and software development company dedicated to building modern, scalable, and high-performance digital solutions. We specialize in creating business websites, custom software, microfinance systems, and e-commerce platforms that help organizations grow and succeed in the digital world.
+<section id="about" class="page">
+<h2>About Us</h2>
+<p style="max-width:700px;">
+Code Calfo is a professional software and web development company delivering modern and scalable solutions for businesses.
 </p>
 
-<p style="font-size:18px;line-height:1.8;margin-bottom:20px;">
-Our team focuses on delivering clean design, strong performance, and secure applications. We understand business needs and transform them into powerful digital products that improve efficiency and customer experience.
-</p>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:30px;">
-
-<div class="service-box">
-<h3>Our Mission</h3>
-<p>To empower businesses with innovative technology solutions that drive growth and efficiency.</p>
+<div class="grid">
+<div class="box">Mission: Empower businesses</div>
+<div class="box">Vision: Global IT partner</div>
+<div class="box">Values: Quality & Trust</div>
+<div class="box">Why Us: Fast & Reliable</div>
 </div>
-
-<div class="service-box">
-<h3>Our Vision</h3>
-<p>To become a trusted global IT partner delivering world-class digital products.</p>
-</div>
-
-<div class="service-box">
-<h3>Our Values</h3>
-<p>Quality, transparency, innovation, and customer satisfaction are at the core of everything we do.</p>
-</div>
-
-<div class="service-box">
-<h3>Why Choose Us</h3>
-<p>Experienced team, fast delivery, affordable pricing, and long-term support.</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <!-- SERVICES -->
-<section id="services">
+<section id="services" class="page">
 <h2>Services</h2>
-<div class="services-grid">
-<div class="service-box">Web Development</div>
-<div class="service-box">Software</div>
-<div class="service-box">SEO</div>
+<div class="grid">
+<div class="box">Web Development</div>
+<div class="box">Software Development</div>
+<div class="box">SEO</div>
+<div class="box">E-commerce</div>
+<div class="box">Billing Software</div>
+<div class="box">Maintenance</div>
 </div>
 </section>
 
 <!-- STATS -->
-<section id="stats">
-<h2>Stats</h2>
-<div class="services-grid">
-<div class="service-box"><div class="counter" data-target="150">0</div><p>Projects</p></div>
-<div class="service-box"><div class="counter" data-target="80">0</div><p>Clients</p></div>
-<div class="service-box"><div class="counter" data-target="5">0</div><p>Years</p></div>
+<section id="stats" class="page stats">
+<h2>Our Achievements</h2>
+
+<div class="grid">
+<div class="box">
+<div class="counter" data-target="150">0</div>
+<p>Projects</p>
+</div>
+
+<div class="box">
+<div class="counter" data-target="80">0</div>
+<p>Clients</p>
+</div>
+
+<div class="box">
+<div class="counter" data-target="5">0</div>
+<p>Years</p>
+</div>
 </div>
 </section>
 
 <!-- CLIENTS -->
-<section id="clients">
+<section id="clients" class="page">
 <h2>Clients</h2>
-<div class="services-grid">
-<div class="service-box">Great service</div>
-<div class="service-box">Professional</div>
+
+<div class="grid">
+<div class="box">"Excellent service"</div>
+<div class="box">"Professional team"</div>
+<div class="box">"Best experience"</div>
 </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="page">
 <h2>FAQ</h2>
-<div class="services-grid">
-<div class="service-box">What services? Web & software</div>
-<div class="service-box">Support? Yes</div>
+
+<div class="grid">
+<div class="box faq-box">What services? → Web & Software</div>
+<div class="box faq-box">Support? → 24/7</div>
+<div class="box faq-box">Custom work? → Yes</div>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="page">
 <h2>Contact</h2>
-<button class="btn">Send Message</button>
+
+<input type="text" placeholder="Name"><br>
+<input type="email" placeholder="Email"><br>
+<textarea placeholder="Message"></textarea><br>
+<button>Send Message</button>
+
 </section>
 
-<footer>
-<p>© 2026 Code Calfo</p>
-</footer>
+  <script>
 
-<a href="#" class="whatsapp">💬</a>
-
-<script>
-let slides=document.querySelectorAll(".slide");
-let index=0;
-
-function showSlide(){
-slides.forEach(s=>s.classList.remove("active"));
-slides[index].classList.add("active");
-}
-
-function nextSlide(){index=(index+1)%slides.length;showSlide();}
-function prevSlide(){index=(index-1+slides.length)%slides.length;showSlide();}
-
-setInterval(nextSlide,4000);
-
-// COUNTER
+// COUNTER ANIMATION
 let counters=document.querySelectorAll(".counter");
+
 counters.forEach(counter=>{
 let update=()=>{
 let target=+counter.getAttribute("data-target");
 let count=+counter.innerText;
+
 let inc=target/100;
-if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,30)}
-else{counter.innerText=target}
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,30);
+}else{
+counter.innerText=target;
+}
 }
 update();
 });
+
+// ACTIVE MENU HIGHLIGHT
+let sections=document.querySelectorAll("section");
+let navLinks=document.querySelectorAll("nav a");
+
+window.onscroll=()=>{
+let current="";
+
+sections.forEach(section=>{
+let sectionTop=section.offsetTop;
+if(pageYOffset>=sectionTop-150){
+current=section.getAttribute("id");
+}
+});
+
+navLinks.forEach(a=>{
+a.classList.remove("active");
+if(a.getAttribute("href")==="#"+current){
+a.style.color="#0077b6";
+}
+});
+};
+
 </script>
 
 </body>

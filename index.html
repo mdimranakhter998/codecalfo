@@ -3,46 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Code Calfo - Professional Web Solutions</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Code Calfo - Premium Web Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
 body{background:#f4f7fb;color:#333}
 
 header{position:fixed;width:100%;top:0;background:#fff;padding:15px 60px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 15px rgba(0,0,0,0.08);z-index:1000}
-header h1{color:#0a58ca}
-nav a{margin-left:25px;text-decoration:none;color:#333;position:relative}
+header h1{color:#0a58ca;font-weight:700}
+nav a{margin-left:25px;text-decoration:none;color:#333;font-weight:500;position:relative}
 nav a::after{content:"";position:absolute;width:0;height:2px;background:#0a58ca;left:0;bottom:-5px;transition:0.3s}
 nav a:hover::after{width:100%}
 
-.hero{height:100vh;position:relative}
+.hero{height:100vh;position:relative;overflow:hidden}
 .slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;opacity:0;transition:1s}
 .slide.active{opacity:1}
-.overlay{background:rgba(0,0,0,0.65);padding:30px;border-radius:12px}
-.hero h2{font-size:45px}
+.overlay{background:rgba(0,0,0,0.65);padding:40px;border-radius:12px}
+.hero h2{font-size:48px;font-weight:700}
+.hero p{margin-top:15px;font-size:20px}
 
-.btn{padding:12px 28px;background:#0a58ca;color:#fff;border:none;border-radius:6px}
+.btn{padding:14px 30px;background:#0a58ca;color:#fff;border:none;border-radius:6px;margin-top:15px;cursor:pointer}
 
 section{padding:100px 60px;text-align:center}
 
-#about{background:#fff}
-#services{background:#eef3f9}
+#about,#testimonials{background:#fff}
+#services,#faq{background:#eef3f9}
 #stats{background:#0a58ca;color:#fff}
-#testimonials{background:#fff}
-#faq{background:#eef3f9}
 
-.services-grid,.stats-grid,.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.card{background:#fff;padding:30px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:0.3s}
+.card:hover{transform:translateY(-10px)}
+.stat{background:#0d6efd;color:#fff}
 
-.service-box,.stat-box,.testimonial-box{background:#fff;padding:30px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.08)}
-.stat-box{background:#0d6efd;color:#fff}
+.contact-wrapper{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin-top:40px}
+.contact-box{background:#fff;padding:30px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08)}
 
-.contact-wrapper{display:flex;flex-wrap:wrap;gap:40px;justify-content:center}
-.contact-left,.contact-right{background:#fff;padding:30px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08)}
-
-footer{background:#0b1f3a;color:#fff;padding:50px}
-
+footer{background:#0b1f3a;color:#fff;padding:50px;text-align:center}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
 
 @media(max-width:768px){section{padding:70px 20px}.contact-wrapper{flex-direction:column}}
@@ -64,71 +61,91 @@ footer{background:#0b1f3a;color:#fff;padding:50px}
 </nav>
 </header>
 
+<!-- HOME -->
 <div class="hero" id="home">
 <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')">
 <div class="overlay">
-<h2>Grow Your Business Digitally</h2>
-<p>Professional Web & Software Development</p>
-<button class="btn" onclick="goContact()">Start Now</button>
+<h2>Build Powerful Digital Presence</h2>
+<p>Websites, Software & Business Automation</p>
+<button class="btn" onclick="goContact()">Start Project</button>
 </div>
 </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
-<p>Code Calfo is a modern IT company delivering high quality digital solutions including websites, finance software, and business applications.</p>
-</section>
-
-<section id="services">
-<h2>Our Services</h2>
-<div class="services-grid">
-<div class="service-box"><h3>Web Development</h3></div>
-<div class="service-box"><h3>Software Development</h3></div>
-<div class="service-box"><h3>SEO</h3></div>
-<div class="service-box"><h3>Ecommerce</h3></div>
+<p>Code Calfo delivers scalable, modern and secure IT solutions for startups and enterprises. We focus on innovation, quality and long-term client success.</p>
+<div class="grid">
+<div class="card"><h3>Our Mission</h3><p>Empower businesses with technology.</p></div>
+<div class="card"><h3>Our Vision</h3><p>Become a trusted global tech partner.</p></div>
+<div class="card"><h3>Why Choose Us</h3><p>Expert team, fast delivery & support.</p></div>
 </div>
 </section>
 
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+<div class="grid">
+<div class="card"><h3>Web Development</h3><p>Modern responsive websites.</p></div>
+<div class="card"><h3>Software Systems</h3><p>Custom business applications.</p></div>
+<div class="card"><h3>E-commerce</h3><p>Online store solutions.</p></div>
+<div class="card"><h3>SEO Marketing</h3><p>Boost traffic & ranking.</p></div>
+<div class="card"><h3>Billing Software</h3><p>GST & invoice systems.</p></div>
+<div class="card"><h3>Maintenance</h3><p>Support & updates.</p></div>
+</div>
+</section>
+
+<!-- STATS -->
 <section id="stats">
 <h2>Our Achievements</h2>
-<div class="stats-grid">
-<div class="stat-box"><h3>100+</h3><p>Projects</p></div>
-<div class="stat-box"><h3>50+</h3><p>Clients</p></div>
-<div class="stat-box"><h3>5+</h3><p>Years Experience</p></div>
+<div class="grid">
+<div class="card stat"><h3>150+</h3><p>Projects Completed</p></div>
+<div class="card stat"><h3>80+</h3><p>Happy Clients</p></div>
+<div class="card stat"><h3>5+</h3><p>Years Experience</p></div>
+<div class="card stat"><h3>24/7</h3><p>Support</p></div>
 </div>
 </section>
 
+<!-- CLIENTS -->
 <section id="testimonials">
-<h2>Client Feedback</h2>
-<div class="testimonial-grid">
-<div class="testimonial-box"><p>Excellent service!</p></div>
-<div class="testimonial-box"><p>Highly professional team.</p></div>
+<h2>Client Testimonials</h2>
+<div class="grid">
+<div class="card"><p>"Excellent service and support."</p><h4>- Client A</h4></div>
+<div class="card"><p>"Highly professional team."</p><h4>- Client B</h4></div>
+<div class="card"><p>"Best software solutions provider."</p><h4>- Client C</h4></div>
 </div>
 </section>
 
+<!-- FAQ -->
 <section id="faq">
-<h2>FAQ</h2>
-<p>We provide web, software and digital solutions.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="grid">
+<div class="card"><h3>What services do you offer?</h3><p>Web, software, SEO & digital solutions.</p></div>
+<div class="card"><h3>Do you provide support?</h3><p>Yes, 24/7 support available.</p></div>
+<div class="card"><h3>Custom development?</h3><p>Yes, fully customized solutions.</p></div>
+</div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact Us</h2>
 <div class="contact-wrapper">
-<div class="contact-left">
+<div class="contact-box">
 <p>📞 +91 8860909760</p>
 <p>📧 codecalfo@gmail.com</p>
 </div>
-<div class="contact-right">
-<input type="text" placeholder="Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn">Send</button>
+<div class="contact-box">
+<input type="text" placeholder="Full Name"><br><br>
+<input type="email" placeholder="Email"><br><br>
+<textarea rows="4" placeholder="Message"></textarea><br><br>
+<button class="btn">Send Message</button>
 </div>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Code Calfo</p>
+<p>© 2026 Code Calfo | All Rights Reserved</p>
 </footer>
 
 <a href="#" class="whatsapp">💬</a>

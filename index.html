@@ -91,6 +91,82 @@ footer{background:#0d1b2a;color:#fff;padding:40px;text-align:center}
 position:fixed;bottom:20px;right:20px;
 background:#25d366;color:#fff;padding:15px;border-radius:50%;
 }
+  .faq-item{
+background:#fff;
+margin-bottom:15px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+.faq-question{
+padding:15px;
+cursor:pointer;
+font-weight:600;
+display:flex;
+justify-content:space-between;
+}
+
+.faq-answer{
+padding:15px;
+display:none;
+color:#555;
+border-top:1px solid #eee;
+}
+  .contact-wrapper{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+justify-content:center;
+align-items:flex-start;
+}
+
+.contact-left{
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+width:350px;
+}
+
+.contact-box{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+align-items:flex-start;
+}
+
+.contact-box span{
+font-size:20px;
+}
+
+.contact-right{
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+width:420px;
+}
+
+.contact-right input,
+.contact-right textarea{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus{
+border-color:#0077b6;
+outline:none;
+}
+
+.contact-right button{
+width:100%;
+}
 </style>
 </head>
 
@@ -188,70 +264,307 @@ Our goal is to create digital solutions that are not only visually appealing but
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="page">
-<h2>Services</h2>
+<section id="services" class="page" style="background:#eef3f7;">
 
-<div class="grid">
-<div class="box">Web Development</div>
-<div class="box">Software</div>
-<div class="box">SEO</div>
-<div class="box">E-commerce</div>
+<div style="max-width:1100px;margin:auto;">
+
+<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
+Our Services
+</h2>
+
+<p style="color:#555;max-width:800px;margin:auto;">
+We provide end-to-end digital solutions designed to help your business grow, scale, and succeed in today’s competitive market.
+</p>
+
+<div class="grid" style="margin-top:50px;">
+
+<!-- SERVICE 1 -->
+<div class="box">
+<h3 style="color:#0077b6;">🌐 Web Development</h3>
+<p>Modern, responsive and high-performance websites tailored for your business needs.</p>
 </div>
+
+<!-- SERVICE 2 -->
+<div class="box">
+<h3 style="color:#0077b6;">💻 Custom Software</h3>
+<p>Secure and scalable software solutions designed to automate and optimize your operations.</p>
+</div>
+
+<!-- SERVICE 3 -->
+<div class="box">
+<h3 style="color:#0077b6;">🛒 E-commerce Solutions</h3>
+<p>Complete online store development with payment integration and user-friendly design.</p>
+</div>
+
+<!-- SERVICE 4 -->
+<div class="box">
+<h3 style="color:#0077b6;">📈 SEO & Marketing</h3>
+<p>Improve your visibility on Google and attract more customers with digital marketing.</p>
+</div>
+
+<!-- SERVICE 5 -->
+<div class="box">
+<h3 style="color:#0077b6;">💳 Billing Software</h3>
+<p>GST billing, invoicing, and accounting solutions for efficient business management.</p>
+</div>
+
+<!-- SERVICE 6 -->
+<div class="box">
+<h3 style="color:#0077b6;">🛠 Maintenance & Support</h3>
+<p>Regular updates, security improvements, and technical support for your systems.</p>
+</div>
+
+</div>
+
+<!-- EXTRA SECTION -->
+<div style="margin-top:60px;">
+
+<h3 style="font-size:28px;margin-bottom:10px;">Why Our Services?</h3>
+
+<p style="max-width:900px;margin:auto;color:#555;">
+We focus on quality, performance, and user experience. Every solution we deliver is optimized for speed, security, and scalability to ensure long-term success for your business.
+</p>
+
+</div>
+
+</div>
+
 </section>
-
 <!-- STATS -->
-<section id="stats" class="page stats">
-<h2>Stats</h2>
+<section id="stats" class="page stats" style="background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;">
 
-<div class="grid">
-<div class="box"><div class="counter" data-target="150">0</div><p>Projects</p></div>
-<div class="box"><div class="counter" data-target="80">0</div><p>Clients</p></div>
-<div class="box"><div class="counter" data-target="5">0</div><p>Years</p></div>
+<div style="max-width:1100px;margin:auto;">
+
+<h2 style="font-size:42px;margin-bottom:10px;">
+Our Achievements
+</h2>
+
+<p style="max-width:700px;margin:auto;">
+We take pride in delivering high-quality solutions and building long-term relationships with our clients.
+</p>
+
+<div class="grid" style="margin-top:50px;">
+
+<!-- STAT 1 -->
+<div class="box" style="background:#fff;color:#000;">
+<div class="counter" data-target="150">0</div>
+<h3>Projects Completed</h3>
+<p>Successfully delivered across various industries</p>
 </div>
+
+<!-- STAT 2 -->
+<div class="box" style="background:#fff;color:#000;">
+<div class="counter" data-target="80">0</div>
+<h3>Happy Clients</h3>
+<p>Trusted by businesses and startups</p>
+</div>
+
+<!-- STAT 3 -->
+<div class="box" style="background:#fff;color:#000;">
+<div class="counter" data-target="5">0</div>
+<h3>Years Experience</h3>
+<p>Expertise in web and software development</p>
+</div>
+
+<!-- STAT 4 -->
+<div class="box" style="background:#fff;color:#000;">
+<div class="counter" data-target="24">0</div>
+<h3>Support Availability</h3>
+<p>24/7 technical support and assistance</p>
+</div>
+
+</div>
+
+<!-- EXTRA -->
+<div style="margin-top:60px;">
+<h3 style="font-size:26px;">Why Numbers Matter</h3>
+<p style="max-width:800px;margin:auto;">
+Our numbers reflect our dedication, experience, and commitment to delivering high-quality solutions. Every project we complete strengthens our expertise and builds lasting client relationships.
+</p>
+</div>
+
+</div>
+
 </section>
 
 <!-- CLIENTS -->
-<section id="clients" class="page">
-<h2>Clients</h2>
+<section id="clients" class="page" style="background:#f8fbff;">
 
-<div class="grid">
-<div class="box">"Excellent service"</div>
-<div class="box">"Professional"</div>
-<div class="box">"Best company"</div>
+<div style="max-width:1100px;margin:auto;">
+
+<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
+What Our Clients Say
+</h2>
+
+<p style="color:#555;max-width:800px;margin:auto;">
+We have helped businesses grow with reliable and scalable solutions. Here’s what our clients say about us.
+</p>
+
+<div class="grid" style="margin-top:50px;">
+
+<!-- CLIENT 1 -->
+<div class="box">
+<p style="font-style:italic;">
+"Code Calfo delivered our project on time with excellent quality. Their team is highly professional."
+</p>
+
+<h3 style="margin-top:15px;color:#0077b6;">Rahul Sharma</h3>
+<p style="font-size:14px;color:#777;">Business Owner</p>
 </div>
+
+<!-- CLIENT 2 -->
+<div class="box">
+<p style="font-style:italic;">
+"Very reliable company. They built our software exactly as we needed. Highly recommended."
+</p>
+
+<h3 style="margin-top:15px;color:#0077b6;">Amit Verma</h3>
+<p style="font-size:14px;color:#777;">Startup Founder</p>
+</div>
+
+<!-- CLIENT 3 -->
+<div class="box">
+<p style="font-style:italic;">
+"Great experience working with Code Calfo. Their support and service are outstanding."
+</p>
+
+<h3 style="margin-top:15px;color:#0077b6;">Priya Singh</h3>
+<p style="font-size:14px;color:#777;">Entrepreneur</p>
+</div>
+
+</div>
+
+<!-- EXTRA TRUST SECTION -->
+<div style="margin-top:60px;">
+
+<h3 style="font-size:28px;margin-bottom:10px;">Trusted by Growing Businesses</h3>
+
+<p style="max-width:800px;margin:auto;color:#555;">
+We focus on building long-term partnerships with our clients by delivering consistent quality, transparency, and support.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="page">
-<h2>FAQ</h2>
+<section id="faq" class="page" style="background:#eef3f7;">
 
-<div class="grid">
-<div class="box">Services? → Web & Software</div>
-<div class="box">Support? → 24/7</div>
+<div style="max-width:900px;margin:auto;">
+
+<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
+Frequently Asked Questions
+</h2>
+
+<p style="color:#555;margin-bottom:40px;">
+Find answers to common questions about our services and solutions.
+</p>
+
+<!-- FAQ ITEM -->
+<div class="faq-item">
+<div class="faq-question">What services do you provide? <span>+</span></div>
+<div class="faq-answer">
+We provide web development, custom software, e-commerce solutions, SEO, billing software, and maintenance services.
 </div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Do you provide support after project delivery? <span>+</span></div>
+<div class="faq-answer">
+Yes, we offer 24/7 support, maintenance, and updates to ensure your system runs smoothly.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Can you build custom software for my business? <span>+</span></div>
+<div class="faq-answer">
+Absolutely! We create fully customized solutions based on your business requirements.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">How long does a project take? <span>+</span></div>
+<div class="faq-answer">
+Project timelines depend on complexity, but we always ensure timely delivery with quality.
+</div>
+</div>
+
+</div>
+
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="page">
-<h2>Contact</h2>
+<section id="contact" class="page" style="background:#f8fbff;">
 
-<div class="contact-wrapper">
+<div style="max-width:1100px;margin:auto;">
 
+<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
+Contact Us
+</h2>
+
+<p style="color:#555;max-width:700px;margin:auto;">
+Have a project in mind? Let’s discuss how we can help your business grow.
+</p>
+
+<div class="contact-wrapper" style="margin-top:50px;">
+
+<!-- LEFT SIDE -->
 <div class="contact-left">
-<p>📞 +91 8860909760</p>
-<p>📧 codecalfo@gmail.com</p>
+
+<div class="contact-box">
+<span>📞</span>
+<div>
+<h4>Phone</h4>
+<p>+91 8860909760</p>
+</div>
 </div>
 
+<div class="contact-box">
+<span>📧</span>
+<div>
+<h4>Email</h4>
+<p>codecalfo@gmail.com</p>
+</div>
+</div>
+
+<div class="contact-box">
+<span>📍</span>
+<div>
+<h4>Location</h4>
+<p>India</p>
+</div>
+</div>
+
+<div class="contact-box">
+<span>💬</span>
+<div>
+<h4>WhatsApp</h4>
+<p><a href="https://wa.me/918210276291" target="_blank">Chat Now</a></p>
+</div>
+</div>
+
+</div>
+
+<!-- RIGHT SIDE FORM -->
 <div class="contact-right">
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
+
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email Address">
+<input type="tel" placeholder="Phone Number">
+
+<textarea rows="5" placeholder="Write your message..."></textarea>
+
+<button class="btn" onclick="sendMsg()">Send Message</button>
+
 </div>
 
 </div>
+
+</div>
+
 </section>
-
 <footer>
 <p>© 2026 Code Calfo</p>
 </footer>
@@ -282,6 +595,18 @@ if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,30)}
 else{counter.innerText=target}
 }
 update();
+});
+  document.querySelectorAll(".faq-question").forEach(q=>{
+q.addEventListener("click",()=>{
+let answer=q.nextElementSibling;
+let open=answer.style.display==="block";
+
+document.querySelectorAll(".faq-answer").forEach(a=>a.style.display="none");
+
+if(!open){
+answer.style.display="block";
+}
+});
 });
 </script>
 

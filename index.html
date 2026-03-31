@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,163 +6,40 @@
 <title>Code Calfo</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';scroll-behavior:smooth}
 body{background:#f5f7fa;color:#333}
 
-/* HEADER */
-header{
-position:fixed;width:100%;top:0;background:#fff;
-padding:15px 50px;display:flex;justify-content:space-between;
-align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;
-}
+header{position:fixed;width:100%;top:0;background:#fff;padding:15px 50px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000}
 header h1{color:#0077b6}
-nav a{margin-left:25px;text-decoration:none;color:#333;font-weight:500}
+nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500}
 nav a:hover{color:#0077b6}
 
-/* HERO */
-.hero{height:100vh;position:relative;overflow:hidden;}
-.slide{
-position:absolute;width:100%;height:100%;
-background-size:cover;background-position:center;
-display:flex;align-items:center;justify-content:center;
-color:#fff;text-align:center;opacity:0;transition:1s;
-}
+.hero{height:100vh;position:relative;overflow:hidden}
+.slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;opacity:0;transition:1s}
 .slide.active{opacity:1}
+.overlay{background:rgba(0,0,0,0.6);padding:25px;border-radius:10px}
 
-.overlay{
-background:rgba(0,0,0,0.6);
-padding:25px;border-radius:10px;
-}
-.hero h2{font-size:48px}
-.hero p{margin:15px 0}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;padding:10px;cursor:pointer}
+.prev{left:10px}
+.next{right:10px}
 
-/* BUTTON */
-.btn{
-padding:12px 25px;background:#00b4d8;border:none;
-color:#fff;border-radius:5px;cursor:pointer;
-}
-.btn:hover{background:#0077b6}
+.btn{padding:12px 25px;background:#00b4d8;border:none;color:#fff;border-radius:5px;cursor:pointer}
 
-/* SECTION */
 section{padding:100px 50px;text-align:center}
 
-/* SERVICES */
-#services{background:#eef3f7}
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;margin-top:40px;
-}
-.service-box{
-background:#fff;padding:25px;border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-.service-box:hover{transform:translateY(-8px);}
-.service-box h3{color:#0077b6;margin-bottom:10px}
+#services,#faq{background:#eef3f7}
 
-/* CONTACT */
-.contact-wrapper{
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-margin-top:40px;
-justify-content:center;
-align-items:flex-start;
-}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.service-box{background:#fff;padding:25px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s}
+.service-box:hover{transform:translateY(-8px)}
 
-.contact-left{
-background:#fff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-width:350px;
-text-align:left;
-}
+.counter{font-size:30px;font-weight:bold;color:#0077b6}
 
-.contact-box{
-display:flex;
-gap:15px;
-margin-bottom:20px;
-}
+footer{background:#0d1b2a;color:#fff;padding:50px;text-align:center}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px;border-radius:50%}
 
-.contact-right{
-background:#fff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-width:420px;
-}
-
-.contact-right input,
-.contact-right textarea{
-width:100%;
-padding:12px;
-margin-bottom:12px;
-border:1px solid #ccc;
-border-radius:6px;
-}
-
-/* FOOTER */
-footer{
-background:#0d1b2a;color:#fff;padding:50px;
-}
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-}
-footer p{color:#ccc}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25d366;color:#fff;padding:15px 18px;
-border-radius:50%;font-size:20px;text-decoration:none;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-header{
-padding:12px 20px;
-flex-direction:column;
-align-items:flex-start;
-}
-
-nav{margin-top:10px;}
-
-nav a{
-margin:8px 10px 0 0;
-display:inline-block;
-}
-
-.hero{height:80vh;}
-.hero h2{font-size:26px;}
-.hero p{font-size:14px;}
-
-section{padding:70px 20px;}
-
-.services-grid{
-grid-template-columns:1fr;
-}
-
-.contact-wrapper{
-flex-direction:column;
-}
-
-.contact-left,
-.contact-right{
-width:100%;
-}
-
-.footer-grid{
-grid-template-columns:1fr;
-text-align:center;
-}
-}
+@media(max-width:768px){section{padding:70px 20px}}
 </style>
-
 </head>
 
 <body>
@@ -172,162 +48,85 @@ text-align:center;
 <h1>Code Calfo</h1>
 <nav>
 <a href="#home">Home</a>
+<a href="#about">About</a>
 <a href="#services">Services</a>
+<a href="#stats">Stats</a>
+<a href="#clients">Clients</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<!-- HERO -->
-
+<!-- HOME -->
 <div class="hero" id="home">
 
-<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')">
-<div class="overlay">
-<h2>We Build Smart Digital Solutions</h2>
-<p>Web, Finance & Business Systems</p>
-<button class="btn" onclick="goContact()">Start Now</button>
-</div>
-</div>
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')"><div class="overlay"><h2>Digital Solutions</h2></div></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c')"><div class="overlay"><h2>Software Development</h2></div></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')"><div class="overlay"><h2>Ecommerce</h2></div></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c')"><div class="overlay"><h2>Marketing</h2></div></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d')"><div class="overlay"><h2>SEO</h2></div></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f')"><div class="overlay"><h2>Design</h2></div></div>
 
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c')">
-<div class="overlay">
-<h2>E-commerce & Business Growth</h2>
-<p>Complete Digital Platforms</p>
-</div>
-</div>
-
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')">
-<div class="overlay">
-<h2>Custom Software Development</h2>
-<p>Secure & Scalable Solutions</p>
-</div>
-</div>
-
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c')">
-<div class="overlay">
-<h2>Grow Your Business Online</h2>
-<p>SEO, Marketing & Branding</p>
-</div>
-</div>
+<button class="slider-btn prev" onclick="prevSlide()">❮</button>
+<button class="slider-btn next" onclick="nextSlide()">❯</button>
 
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>Professional web and software company.</p>
+</section>
 
 <!-- SERVICES -->
-
 <section id="services">
-<h2>Our Professional Services</h2>
-
+<h2>Services</h2>
 <div class="services-grid">
-
-<div class="service-box">
-<h3>Microfinance Software</h3>
-<p>Loan management & financial systems.</p>
+<div class="service-box">Web Development</div>
+<div class="service-box">Software</div>
+<div class="service-box">SEO</div>
 </div>
+</section>
 
-<div class="service-box">
-<h3>E-commerce Development</h3>
-<p>Online stores with payment integration.</p>
+<!-- STATS -->
+<section id="stats">
+<h2>Stats</h2>
+<div class="services-grid">
+<div class="service-box"><div class="counter" data-target="150">0</div><p>Projects</p></div>
+<div class="service-box"><div class="counter" data-target="80">0</div><p>Clients</p></div>
+<div class="service-box"><div class="counter" data-target="5">0</div><p>Years</p></div>
 </div>
+</section>
 
-<div class="service-box">
-<h3>Business Websites</h3>
-<p>Modern responsive company websites.</p>
+<!-- CLIENTS -->
+<section id="clients">
+<h2>Clients</h2>
+<div class="services-grid">
+<div class="service-box">Great service</div>
+<div class="service-box">Professional</div>
 </div>
+</section>
 
-<div class="service-box">
-<h3>Custom Web Apps</h3>
-<p>Tailored systems for your business.</p>
-</div>
-
-<div class="service-box">
-<h3>SEO Optimization</h3>
-<p>Boost your Google ranking.</p>
-</div>
-
-<div class="service-box">
-<h3>Website Maintenance</h3>
-<p>Security updates & performance tuning.</p>
-</div>
-
-<div class="service-box">
-<h3>Billing Software</h3>
-<p>Invoice, GST billing & business accounting.</p>
-</div>
-
-<div class="service-box">
-<h3>Hotel Management System</h3>
-<p>Booking, rooms, billing & full hotel control.</p>
-</div>
-
+<!-- FAQ -->
+<section id="faq">
+<h2>FAQ</h2>
+<div class="services-grid">
+<div class="service-box">What services? Web & software</div>
+<div class="service-box">Support? Yes</div>
 </div>
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
-<h2>Contact Us</h2>
-
-<div class="contact-wrapper">
-
-<div class="contact-left">
-
-<div class="contact-box">
-<span>📞</span>
-<p>+91 8860909760</p>
-</div>
-
-<div class="contact-box">
-<span>💬</span>
-<p><a href="https://wa.me/918210276291">WhatsApp Chat</a></p>
-</div>
-
-<div class="contact-box">
-<span>📧</span>
-<p>codecalfo@gmail.com</p>
-</div>
-
-</div>
-
-<div class="contact-right">
-<input type="text" placeholder="Full Name">
-<input type="email" placeholder="Email">
-<input type="tel" placeholder="Phone">
-<textarea rows="5" placeholder="Message"></textarea>
-<button class="btn" onclick="sendMsg()">Send Message</button>
-</div>
-
-</div>
+<h2>Contact</h2>
+<button class="btn">Send Message</button>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
-<div class="footer-grid">
-
-<div>
-<h3>Code Calfo</h3>
-<p>We build modern, scalable websites.</p>
-</div>
-
-<div>
-<h3>Services</h3>
-<p>Web Development</p>
-<p>E-commerce</p>
-<p>Microfinance</p>
-</div>
-
-<div>
-<h3>Contact</h3>
-<p>+91 8860909760</p>
-<p>codecalfo@gmail.com</p>
-</div>
-
-</div>
-
-<p style="text-align:center;margin-top:20px;">© 2026 Code Calfo</p>
+<p>© 2026 Code Calfo</p>
 </footer>
 
-<a href="https://wa.me/918210276291" class="whatsapp">💬</a>
+<a href="#" class="whatsapp">💬</a>
 
 <script>
 let slides=document.querySelectorAll(".slide");
@@ -338,18 +137,23 @@ slides.forEach(s=>s.classList.remove("active"));
 slides[index].classList.add("active");
 }
 
-setInterval(()=>{
-index=(index+1)%slides.length;
-showSlide();
-},4000);
+function nextSlide(){index=(index+1)%slides.length;showSlide();}
+function prevSlide(){index=(index-1+slides.length)%slides.length;showSlide();}
 
-function goContact(){
-document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-}
+setInterval(nextSlide,4000);
 
-function sendMsg(){
-alert("Thanks! We will contact you soon.");
+// COUNTER
+let counters=document.querySelectorAll(".counter");
+counters.forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute("data-target");
+let count=+counter.innerText;
+let inc=target/100;
+if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,30)}
+else{counter.innerText=target}
 }
+update();
+});
 </script>
 
 </body>

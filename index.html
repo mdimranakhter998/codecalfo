@@ -193,6 +193,111 @@ transition:0.3s;
 background:#00b4d8;
 transform:translateY(-3px);
 }
+/* ================= RESPONSIVE FIX ================= */
+
+/* MOBILE (<=768px) */
+@media (max-width:768px){
+
+header{
+padding:10px 15px;
+flex-direction:column;
+align-items:flex-start;
+}
+
+nav{
+margin-top:10px;
+display:flex;
+flex-wrap:wrap;
+}
+
+nav a{
+margin:5px 10px 5px 0;
+font-size:14px;
+}
+
+/* PAGE PADDING FIX */
+.page{
+padding:100px 20px;
+}
+
+/* HERO TEXT */
+.overlay{
+padding:15px;
+}
+
+.overlay h2{
+font-size:20px;
+}
+
+.overlay p{
+font-size:14px;
+}
+
+/* GRID FIX */
+.grid{
+grid-template-columns:1fr;
+}
+
+/* CONTACT FIX */
+.contact-wrapper{
+flex-direction:column;
+align-items:center;
+}
+
+.contact-left,
+.contact-right{
+width:100%;
+max-width:100%;
+}
+
+/* FOOTER */
+footer{
+padding:30px 15px;
+}
+
+/* BUTTONS */
+.slider-btn{
+padding:6px;
+font-size:14px;
+}
+
+}
+
+/* TABLET (769px - 1024px) */
+@media (min-width:769px) and (max-width:1024px){
+
+.page{
+padding:110px 30px;
+}
+
+.contact-left{
+width:100%;
+max-width:400px;
+}
+
+.contact-right{
+width:100%;
+max-width:500px;
+}
+
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width:480px){
+
+header h1{
+font-size:18px;
+}
+
+nav a{
+font-size:12px;
+}
+
+.overlay h2{
+font-size:18px;
+}
+
+}
 </style>
 </head>
 

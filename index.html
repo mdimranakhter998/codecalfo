@@ -198,6 +198,36 @@ grid-template-columns:repeat(4,1fr);
 }
 
 }
+  .faq-item{
+background:#fff;
+margin-bottom:15px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+overflow:hidden;
+text-align:left;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.faq-question{
+padding:15px;
+cursor:pointer;
+font-weight:600;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:16px;
+}
+
+.faq-answer{
+padding:15px;
+display:none;
+color:#555;
+border-top:1px solid #eee;
+font-size:14px;
+line-height:1.5;
+}
 </style>
 </head>
 
@@ -696,49 +726,73 @@ We build modern, scalable websites and software solutions to help businesses gro
 </footer>
 
 <a href="#" class="whatsapp">💬</a>
-
 <script>
-// SLIDER
-let slides=document.querySelectorAll(".slide");
-let index=0;
+
+// ================= SLIDER =================
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
 function showSlide(){
-slides.forEach(s=>s.classList.remove("active"));
-slides[index].classList.add("active");
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
 }
 
-function nextSlide(){index=(index+1)%slides.length;showSlide();}
-function prevSlide(){index=(index-1+slides.length)%slides.length;showSlide();}
-setInterval(nextSlide,4000);
-
-// COUNTER
-document.querySelectorAll('.counter').forEach(counter=>{
-let update=()=>{
-let target=+counter.dataset.target;
-let count=+counter.innerText;
-let inc=target/100;
-if(count<target){counter.innerText=Math.ceil(count+inc);setTimeout(update,30)}
-else{counter.innerText=target}
+function nextSlide(){
+    index = (index + 1) % slides.length;
+    showSlide();
 }
-update();
+
+function prevSlide(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide();
+}
+
+setInterval(nextSlide, 4000);
+
+
+// ================= COUNTER (FIXED) =================
+document.querySelectorAll('.counter').forEach(counter => {
+
+    let target = parseInt(counter.getAttribute("data-target"));
+    let count = 0;
+
+    function update(){
+        let increment = Math.ceil(target / 100);
+
+        if(count < target){
+            count += increment;
+            counter.innerText = count;
+            setTimeout(update, 30);
+        } else {
+            counter.innerText = target;
+        }
+    }
+
+    update();
 });
- document.querySelectorAll('.counter').forEach(counter=>{
-let update=()=>{
-let target=parseInt(counter.getAttribute("data-target"));
-let count=parseInt(counter.innerText);
 
-let inc=Math.ceil(target/100);
 
-if(count < target){
-counter.innerText = count + inc;
-setTimeout(update, 30);
-}else{
-counter.innerText = target;
-}
-};
-update();
+// ================= FAQ TOGGLE =================
+document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
+
+        let answer = q.nextElementSibling;
+        let icon = q.querySelector("span");
+
+        let isOpen = answer.style.display === "block";
+
+        // Close all
+        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+        document.querySelectorAll(".faq-question span").forEach(s => s.innerText = "+");
+
+        // Open clicked
+        if(!isOpen){
+            answer.style.display = "block";
+            icon.innerText = "-";
+        }
+    });
 });
+
 </script>
-
 </body>
 </html>

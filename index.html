@@ -1,829 +1,2471 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Code Calfo</title>
-  
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI';
-scroll-behavior:smooth;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-body{
-background:#f5f7fa;
-color:#333;
-padding-top:65px;
-}
+  <title>Code Calfo | Digital Solutions & Software Development</title>
+  <meta
+    name="description"
+    content="Code Calfo builds modern websites, custom software, e-commerce platforms, billing systems and digital solutions for growing businesses."
+  />
 
-/* HEADER */
-header{
-position:fixed;
-width:100%;
-top:0;
-background:#fff;
-padding:12px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-z-index:1000;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-header h1{
-color:#0077b6;
-font-size:20px;
-}
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #06b6d4;
+      --dark: #07152f;
+      --dark-light: #10254a;
+      --text: #263449;
+      --muted: #68758a;
+      --light: #f6f9ff;
+      --white: #ffffff;
+      --border: #e5ebf5;
+      --shadow: 0 18px 50px rgba(20, 46, 94, 0.1);
+      --radius: 20px;
+      --container: 1180px;
+    }
 
-nav{
-display:flex;
-flex-wrap:wrap;
-justify-content:flex-end;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-nav a{
-margin-left:12px;
-font-size:13px;
-text-decoration:none;
-color:#333;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-nav a:hover{color:#0077b6}
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-/* PAGE */
-.page{
-padding:70px 15px;
-text-align:center;
-}
+    body.menu-open {
+      overflow: hidden;
+    }
 
-/* HERO FIX */
-.hero{
-height:80vh;
-position:relative;
-overflow:hidden;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff;
-opacity:0;
-transition:1s;
-padding:20px;
-}
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
 
-.slide.active{opacity:1}
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-.overlay{
-background:rgba(0,0,0,0.5);
-padding:15px;
-border-radius:10px;
-max-width:90%;
-}
+    button {
+      cursor: pointer;
+    }
 
-.overlay h2{font-size:20px}
-.overlay p{font-size:14px}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* BUTTON */
-.slider-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#fff;
-border:none;
-padding:6px;
-font-size:12px;
-}
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
 
-.prev{left:5px}
-.next{right:5px}
+    .section {
+      padding: 105px 0;
+    }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-margin-top:25px;
-}
+    .section-light {
+      background: var(--light);
+    }
 
-/* BOX */
-.box{
-background:#fff;
-padding:15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
 
-/* CONTACT */
-.contact-wrapper{
-display:flex;
-flex-direction:column;
-gap:20px;
-align-items:center;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-.contact-left,
-.contact-right{
-width:100%;
-max-width:400px;
-}
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
 
-/* INPUT */
-input,textarea{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border:1px solid #ccc;
-border-radius:5px;
-}
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1.2;
+      color: var(--dark);
+    }
 
-/* FOOTER */
-footer{
-padding:30px 15px;
-}
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+    }
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
-background:#25d366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-z-index:999;
-transition:0.3s;
-}
-  .whatsapp img{
-width:30px;
-height:30px;
-}
+    h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
 
-.whatsapp:hover{
-transform:scale(1.1);
-}
+    p {
+      color: var(--muted);
+    }
 
-/* ================= TABLET ================= */
-@media (min-width:768px){
+    .section-heading p {
+      font-size: 16px;
+    }
 
-.hero{
-height:90vh;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 13px 23px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
 
-.overlay h2{
-font-size:28px;
-}
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.22);
+    }
 
-.overlay p{
-font-size:16px;
-}
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+    }
 
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
+    .btn-outline {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-.contact-wrapper{
-flex-direction:row;
-}
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
 
-}
+    .btn-dark {
+      color: var(--white);
+      background: var(--dark);
+    }
 
-/* ================= DESKTOP ================= */
-@media (min-width:1024px){
+    .btn-dark:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
 
-.hero{
-height:100vh;
-}
+    .btn-small {
+      min-height: 42px;
+      padding: 10px 16px;
+    }
 
-.grid{
-grid-template-columns:repeat(4,1fr);
-}
+    /* Header */
 
-}
-  .faq-item{
-background:#fff;
-margin-bottom:15px;
-border-radius:8px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-overflow:hidden;
-text-align:left;
-max-width:700px;
-margin-left:auto;
-margin-right:auto;
-}
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+      backdrop-filter: blur(15px);
+    }
 
-.faq-question{
-padding:15px;
-cursor:pointer;
-font-weight:600;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:16px;
-}
+    .site-header.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 8px 25px rgba(20, 46, 94, 0.08);
+    }
 
-.faq-answer{
-padding:15px;
-display:none;
-color:#555;
-border-top:1px solid #eee;
-font-size:14px;
-line-height:1.5;
-}
-</style>
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--dark);
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+      font-size: 20px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav a {
+      position: relative;
+      color: #4d5b70;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--primary);
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      margin-left: 4px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--dark);
+      font-size: 23px;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      height: 92vh;
+      max-height: 900px;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      background-position: center;
+      background-size: cover;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4, 17, 42, 0.96), rgba(4, 17, 42, 0.68), rgba(4, 17, 42, 0.25)),
+        linear-gradient(0deg, rgba(4, 17, 42, 0.35), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding-top: 45px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      color: #dceaff;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-label span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38d9a9;
+      box-shadow: 0 0 0 5px rgba(56, 217, 169, 0.12);
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(38px, 5.5vw, 72px);
+      letter-spacing: -2px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #67e8f9;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #cbd8ec;
+      font-size: clamp(15px, 1.7vw, 18px);
+      margin-bottom: 35px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-controls {
+      position: absolute;
+      z-index: 5;
+      left: 50%;
+      bottom: 35px;
+      width: min(100% - 40px, var(--container));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transform: translateX(-50%);
+    }
+
+    .slider-arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .slider-arrow {
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      transition: 0.3s ease;
+    }
+
+    .slider-arrow:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      transition: 0.3s ease;
+    }
+
+    .slider-dot.active {
+      width: 30px;
+      border-radius: 20px;
+      background: #67e8f9;
+    }
+
+    /* Trust strip */
+
+    .trust-strip {
+      position: relative;
+      z-index: 10;
+      margin-top: -1px;
+      background: var(--dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .trust-inner {
+      min-height: 95px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      align-items: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .trust-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 12px;
+      color: #67e8f9;
+      background: rgba(103, 232, 249, 0.1);
+      font-size: 20px;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .trust-item small {
+      color: #9fb0ca;
+      font-size: 11px;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .about-image {
+      width: 88%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 220px;
+      padding: 25px;
+      border: 8px solid var(--white);
+      border-radius: 20px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge strong {
+      display: block;
+      font-size: 35px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .about-badge span {
+      font-size: 13px;
+      color: #e6faff;
+    }
+
+    .about-content h2 {
+      margin-bottom: 22px;
+    }
+
+    .about-content > p {
+      margin-bottom: 25px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin: 25px 0 32px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      list-style: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      color: var(--primary);
+      background: #eaf1ff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Cards */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 5px 20px rgba(20, 46, 94, 0.03);
+      transition: 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #cbdcff;
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 23px;
+      border-radius: 16px;
+      color: var(--primary);
+      background: linear-gradient(135deg, #eaf1ff, #e4fbff);
+      font-size: 27px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 13px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 20px;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Values */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .value-card {
+      padding: 28px;
+      border-radius: 18px;
+      background: var(--dark);
+      text-align: center;
+    }
+
+    .value-card .card-icon {
+      margin: 0 auto 18px;
+      color: #67e8f9;
+      background: rgba(103, 232, 249, 0.1);
+    }
+
+    .value-card h3 {
+      color: var(--white);
+      font-size: 18px;
+    }
+
+    .value-card p {
+      color: #a9bad4;
+      font-size: 13px;
+    }
+
+    /* Solutions */
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .solution-card {
+      position: relative;
+      min-height: 290px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--dark);
+    }
+
+    .solution-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      transition: 0.5s ease;
+    }
+
+    .solution-card:hover img {
+      transform: scale(1.08);
+      opacity: 0.7;
+    }
+
+    .solution-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      background: linear-gradient(0deg, rgba(4, 17, 42, 0.95), transparent);
+    }
+
+    .solution-overlay h3 {
+      color: var(--white);
+      font-size: 22px;
+    }
+
+    .solution-overlay p {
+      color: #d2ddef;
+      font-size: 13px;
+    }
+
+    /* Process */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      counter-reset: process;
+    }
+
+    .process-card {
+      position: relative;
+      padding: 30px 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--white);
+    }
+
+    .process-number {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--primary);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .process-card h3 {
+      font-size: 18px;
+    }
+
+    .process-card p {
+      font-size: 13px;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 85px 0;
+      background:
+        linear-gradient(110deg, rgba(7, 21, 47, 0.98), rgba(16, 37, 74, 0.94)),
+        url("https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta-inner h2 {
+      max-width: 680px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .cta-inner p {
+      color: #b9c9df;
+      max-width: 650px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--white);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 21px 24px;
+      border: 0;
+      color: var(--dark);
+      background: var(--white);
+      text-align: left;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .faq-question span {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      color: var(--primary);
+      background: #edf3ff;
+      font-size: 19px;
+      transition: 0.3s ease;
+    }
+
+    .faq-item.open .faq-question span {
+      color: var(--white);
+      background: var(--primary);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 23px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-answer p {
+      font-size: 14px;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 18px;
+    }
+
+    .contact-info > p {
+      margin-bottom: 30px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 20px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-detail-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 12px;
+      color: var(--primary);
+      background: #edf3ff;
+      font-size: 20px;
+    }
+
+    .contact-detail strong {
+      display: block;
+      color: var(--dark);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .contact-detail a,
+    .contact-detail p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-detail a:hover {
+      color: var(--primary);
+    }
+
+    .contact-form {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .contact-form > p {
+      margin-bottom: 25px;
+      font-size: 13px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      outline: none;
+      color: var(--text);
+      background: #fbfcff;
+      font-size: 13px;
+      transition: 0.3s ease;
+    }
+
+    .form-group textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      color: #166534;
+      background: #dcfce7;
+      font-size: 13px;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      color: #b4c4da;
+      background: var(--dark);
+      padding: 75px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
+      gap: 45px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-description {
+      max-width: 310px;
+      color: #9eb1cc;
+      font-size: 13px;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #9eb1cc;
+      font-size: 13px;
+      transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #67e8f9;
+      padding-left: 4px;
+    }
+
+    .footer-contact {
+      display: grid;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .footer-contact a {
+      color: #9eb1cc;
+    }
+
+    .footer-contact a:hover {
+      color: #67e8f9;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #8296b4;
+      font-size: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 9px;
+    }
+
+    .social-links a {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9px;
+      color: #b4c4da;
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--white);
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Floating buttons */
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: #25d366;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      font-size: 27px;
+      transition: 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 90px;
+      z-index: 900;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 10px;
+      color: var(--white);
+      background: var(--primary);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Reveal animation */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1100px) {
+      .main-nav {
+        gap: 17px;
+      }
+
+      .card-grid,
+      .values-grid,
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .header-inner {
+        min-height: 72px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 72px;
+        right: 0;
+        width: min(320px, 100%);
+        height: calc(100vh - 72px);
+        padding: 30px 25px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        background: var(--white);
+        box-shadow: -10px 0 35px rgba(20, 46, 94, 0.12);
+        transform: translateX(100%);
+        transition: 0.35s ease;
+        overflow-y: auto;
+      }
+
+      .main-nav.open {
+        transform: translateX(0);
+      }
+
+      .main-nav a {
+        font-size: 15px;
+      }
+
+      .header-cta {
+        margin: 10px 0 0;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 680px;
+        height: auto;
+      }
+
+      .hero-content {
+        padding: 125px 0 145px;
+      }
+
+      .trust-inner {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 25px 0;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        max-width: 580px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 30px, var(--container));
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-controls {
+        bottom: 25px;
+      }
+
+      .trust-inner,
+      .card-grid,
+      .values-grid,
+      .process-grid,
+      .solutions-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        justify-content: center;
+      }
+
+      .about-visual {
+        min-height: 350px;
+      }
+
+      .about-image {
+        width: 90%;
+        height: 310px;
+      }
+
+      .about-badge {
+        width: 175px;
+        padding: 18px;
+      }
+
+      .about-badge strong {
+        font-size: 28px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .floating-whatsapp {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .back-to-top {
+        right: 15px;
+        bottom: 82px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-<h1>Code Calfo</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#stats">Stats</a>
-<a href="#clients">Clients</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
-
-<!-- HOME -->
-<div class="hero" id="home">
-
-<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')">
-<div class="overlay">
-<h2>We Build Smart Digital Solutions</h2>
-<p>Web, Finance & Business Systems</p>
-</div>
-</div>
-
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c')">
-<div class="overlay"><h2>E-commerce Growth</h2></div>
-</div>
-
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')">
-<div class="overlay"><h2>Custom Software</h2></div>
-</div>
-
-<button class="slider-btn prev" onclick="prevSlide()">❮</button>
-<button class="slider-btn next" onclick="nextSlide()">❯</button>
-
-</div>
-
-<!-- ABOUT -->
-<section id="about" class="page" style="background:#f8fbff;">
-
-<div style="max-width:1100px;margin:auto;">
-
-<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
-About Code Calfo
-</h2>
-
-<p style="font-size:18px;color:#555;max-width:800px;margin:auto;">
-Code Calfo is a professional web and software development company focused on delivering modern, scalable, and high-performance digital solutions. 
-We help businesses transform digitally with powerful technology and user-friendly systems.
-</p>
-
-<!-- MAIN GRID -->
-<div class="grid" style="margin-top:50px;">
-
-<div class="box">
-<h3 style="color:#0077b6;">🚀 Our Mission</h3>
-<p>To empower businesses with innovative and reliable technology solutions that drive growth and efficiency.</p>
-</div>
-
-<div class="box">
-<h3 style="color:#0077b6;">🌍 Our Vision</h3>
-<p>To become a globally trusted IT partner delivering world-class digital products.</p>
-</div>
-
-<div class="box">
-<h3 style="color:#0077b6;">💡 Our Values</h3>
-<p>Quality, transparency, innovation, and customer satisfaction are at the core of everything we do.</p>
-</div>
-
-<div class="box">
-<h3 style="color:#0077b6;">⭐ Why Choose Us</h3>
-<p>Expert team, fast delivery, affordable pricing, and long-term support for your business success.</p>
-</div>
-
-</div>
-
-<!-- EXTRA PROFESSIONAL SECTION -->
-<div style="margin-top:60px;">
-
-<h3 style="font-size:28px;margin-bottom:15px;">What We Do</h3>
-
-<p style="max-width:900px;margin:auto;color:#555;">
-We specialize in developing business websites, microfinance systems, custom software, billing applications, and e-commerce platforms. 
-Our goal is to create digital solutions that are not only visually appealing but also highly functional and scalable.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="page" style="background:#eef3f7;">
-
-<div style="max-width:1200px;margin:auto;">
-
-<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
-Our Services
-</h2>
-
-<p style="color:#555;max-width:800px;margin:auto;">
-We provide end-to-end digital solutions designed to help your business grow, scale, and succeed in today’s competitive market.
-</p>
-
-<div class="grid" style="margin-top:50px;">
-
-<!-- 1 -->
-<div class="box">
-<h3 style="color:#0077b6;">🌐 Web Development</h3>
-<p>Modern, responsive and high-performance websites tailored for your business needs.</p>
-</div>
-
-<!-- 2 -->
-<div class="box">
-<h3 style="color:#0077b6;">💻 Custom Software</h3>
-<p>Secure and scalable software solutions to automate your business operations.</p>
-</div>
-
-<!-- 3 -->
-<div class="box">
-<h3 style="color:#0077b6;">🛒 E-commerce</h3>
-<p>Complete online store solutions with payment gateway integration.</p>
-</div>
-
-<!-- 4 -->
-<div class="box">
-<h3 style="color:#0077b6;">📈 SEO & Marketing</h3>
-<p>Improve your Google ranking and grow your online presence.</p>
-</div>
-
-<!-- 5 -->
-<div class="box">
-<h3 style="color:#0077b6;">💳 Billing Software</h3>
-<p>GST billing, invoicing, and accounting tools for your business.</p>
-</div>
-
-<!-- 6 -->
-<div class="box">
-<h3 style="color:#0077b6;">🛠 Maintenance</h3>
-<p>Regular updates, bug fixes, and technical support services.</p>
-</div>
-
-<!-- 7 -->
-<div class="box">
-<h3 style="color:#0077b6;">📱 Mobile App Development</h3>
-<p>Android & iOS apps to expand your business reach.</p>
-</div>
-
-<!-- 8 -->
-<div class="box">
-<h3 style="color:#0077b6;">🔐 Security Solutions</h3>
-<p>Protect your systems with advanced security and data protection.</p>
-</div>
-
-</div>
-
-<!-- EXTRA -->
-<div style="margin-top:60px;">
-
-<h3 style="font-size:28px;margin-bottom:10px;">Why Our Services?</h3>
-
-<p style="max-width:900px;margin:auto;color:#555;">
-We focus on quality, performance, and user experience. Every solution we deliver is optimized for speed, security, and scalability to ensure long-term success for your business.
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- STATS -->
-<section id="stats" class="page stats" style="background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;">
-
-<div style="max-width:1100px;margin:auto;">
-
-<h2 style="font-size:42px;margin-bottom:10px;">
-Our Achievements
-</h2>
-
-<p style="max-width:700px;margin:auto;">
-We take pride in delivering high-quality solutions and building long-term relationships with our clients.
-</p>
-
-<div class="grid" style="margin-top:50px;">
-
-<!-- STAT 1 -->
-<div class="box" style="background:#fff;color:#000;">
-<div style="font-size:40px;font-weight:bold;">
-<span class="counter" data-target="150">0</span><span>+</span>
-</div>
-<h3>Projects Completed</h3>
-<p>Successfully delivered across various industries</p>
-</div>
-
-<!-- STAT 2 -->
-<div class="box" style="background:#fff;color:#000;">
-<div style="font-size:40px;font-weight:bold;">
-<span class="counter" data-target="80">0</span><span>+</span>
-</div>
-<h3>Happy Clients</h3>
-<p>Trusted by businesses and startups</p>
-</div>
-
-<!-- STAT 3 -->
-<div class="box" style="background:#fff;color:#000;">
-<div style="font-size:40px;font-weight:bold;">
-<span class="counter" data-target="5">0</span><span>+</span>
-</div>
-<h3>Years Experience</h3>
-<p>Expertise in web and software development</p>
-</div>
-
-<!-- STAT 4 -->
-<div class="box" style="background:#fff;color:#000;">
-<div style="font-size:40px;font-weight:bold;">
-<span class="counter" data-target="24">0</span><span>/7</span>
-</div>
-<h3>Support Availability</h3>
-<p>24/7 technical support and assistance</p>
-</div>
-
-</div>
-
-<!-- EXTRA -->
-<div style="margin-top:60px;">
-<h3 style="font-size:26px;">Why Numbers Matter</h3>
-<p style="max-width:800px;margin:auto;">
-Our numbers reflect our dedication, experience, and commitment to delivering high-quality solutions. Every project we complete strengthens our expertise and builds lasting client relationships.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CLIENTS -->
-<section id="clients" class="page" style="background:#f8fbff;">
-
-<div style="max-width:1100px;margin:auto;">
-
-<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
-What Our Clients Say
-</h2>
-
-<p style="color:#555;max-width:800px;margin:auto;">
-We have helped businesses grow with reliable and scalable solutions. Here’s what our clients say about us.
-</p>
-
-<div class="grid" style="margin-top:50px;">
-
-<!-- CLIENT 1 -->
-<div class="box">
-<p style="font-style:italic;">
-"Code Calfo delivered our project on time with excellent quality. Their team is highly professional."
-</p>
-
-<h3 style="margin-top:15px;color:#0077b6;">Rahul Sharma</h3>
-<p style="font-size:14px;color:#777;">Business Owner</p>
-</div>
-
-<!-- CLIENT 2 -->
-<div class="box">
-<p style="font-style:italic;">
-"Very reliable company. They built our software exactly as we needed. Highly recommended."
-</p>
-
-<h3 style="margin-top:15px;color:#0077b6;">Amit Verma</h3>
-<p style="font-size:14px;color:#777;">Startup Founder</p>
-</div>
-
-<!-- CLIENT 3 -->
-<div class="box">
-<p style="font-style:italic;">
-"Great experience working with Code Calfo. Their support and service are outstanding."
-</p>
-
-<h3 style="margin-top:15px;color:#0077b6;">Priya Singh</h3>
-<p style="font-size:14px;color:#777;">Entrepreneur</p>
-</div>
-
-  <!-- CLIENT 4 -->
-<div class="box">
-<p style="font-style:italic;">
-"Code Calfo exceeded our expectations with their innovative solutions and timely delivery. Truly a great team to work with."
-</p>
-
-<h3 style="margin-top:15px;color:#0077b6;">Neha Khan</h3>
-<p style="font-size:14px;color:#777;">Marketing Manager</p>
-</div>
-
-</div>
-
-<!-- EXTRA TRUST SECTION -->
-<div style="margin-top:60px;">
-
-<h3 style="font-size:28px;margin-bottom:10px;">Trusted by Growing Businesses</h3>
-
-<p style="max-width:800px;margin:auto;color:#555;">
-We focus on building long-term partnerships with our clients by delivering consistent quality, transparency, and support.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="page" style="background:#eef3f7;">
-
-<div style="max-width:900px;margin:auto;">
-
-<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
-Frequently Asked Questions
-</h2>
-
-<p style="color:#555;margin-bottom:40px;">
-Find answers to common questions about our services and solutions.
-</p>
-
-<!-- FAQ ITEM -->
-<div class="faq-item">
-<div class="faq-question">What services do you provide? <span>+</span></div>
-<div class="faq-answer">
-We provide web development, custom software, e-commerce solutions, SEO, billing software, and maintenance services.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">Do you provide support after project delivery? <span>+</span></div>
-<div class="faq-answer">
-Yes, we offer 24/7 support, maintenance, and updates to ensure your system runs smoothly.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">Can you build custom software for my business? <span>+</span></div>
-<div class="faq-answer">
-Absolutely! We create fully customized solutions based on your business requirements.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">How long does a project take? <span>+</span></div>
-<div class="faq-answer">
-Project timelines depend on complexity, but we always ensure timely delivery with quality.
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="page" style="background:#f8fbff;">
-
-<div style="max-width:1100px;margin:auto;">
-
-<h2 style="font-size:42px;color:#0077b6;margin-bottom:10px;">
-Contact Us
-</h2>
-
-<p style="color:#555;max-width:700px;margin:auto;">
-Have a project in mind? Let’s discuss how we can help your business grow.
-</p>
-
-<div class="contact-wrapper" style="margin-top:50px;">
-
-<!-- LEFT INFO -->
-<div class="contact-left">
-
-<div class="contact-item">
-<span>📞</span>
-<div>
-<strong>Phone</strong>
-<p>+91 8860909760</p>
-</div>
-</div>
-
-<div class="contact-item">
-<span>📧</span>
-<div>
-<strong>Email</strong>
-<p>codecalfo@gmail.com</p>
-</div>
-</div>
-
-<div class="contact-item">
-<span>📍</span>
-<div>
-<strong>Location</strong>
-<p>Lucknow, India</p>
-</div>
-</div>
-
-<div class="contact-item">
-<span>💬</span>
-<div>
-<strong>WhatsApp</strong>
-<p><a href="https://wa.me/918860909760" target="_blank">Chat Now</a></p>
-</div>
-</div>
-
-</div>
-
-<!-- RIGHT FORM -->
-<div class="contact-right">
-
-<form>
-
-<div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Enter your name">
-</div>
-
-<div class="form-group">
-<label>Email Address</label>
-<input type="email" placeholder="Enter your email">
-</div>
-
-<div class="form-group">
-<label>Phone Number</label>
-<input type="tel" placeholder="Enter your phone">
-</div>
-
-<div class="form-group">
-<label>Message</label>
-<textarea rows="5" placeholder="Write your message..."></textarea>
-</div>
-
-<button class="btn">Send Message</button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<footer style="background:linear-gradient(135deg,#0d1b2a,#1b263b);color:#fff;padding:60px 20px;">
-
-<div style="max-width:1100px;margin:auto;">
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
-
-<!-- COMPANY -->
-<div>
-<h3 style="color:#00b4d8;margin-bottom:15px;">Code Calfo</h3>
-<p style="color:#ccc;line-height:1.6;">
-We build modern, scalable websites and software solutions to help businesses grow digitally and succeed online.
-</p>
-</div>
-
-<!-- SERVICES -->
-<div>
-<h4 style="margin-bottom:15px;">Services</h4>
-<p>🌐 Web Development</p>
-<p>💻 Custom Software</p>
-<p>🛒 E-commerce</p>
-<p>📈 SEO & Marketing</p>
-</div>
-
-<!-- QUICK LINKS -->
-<div>
-<h4 style="margin-bottom:15px;">Quick Links</h4>
-<p><a href="#home" class="footer-link">Home</a></p>
-<p><a href="#about" class="footer-link">About</a></p>
-<p><a href="#services" class="footer-link">Services</a></p>
-<p><a href="#contact" class="footer-link">Contact</a></p>
-</div>
-
-<!-- CONTACT + SOCIAL -->
-<div>
-<h4 style="margin-bottom:15px;">Contact</h4>
-<p>📞 +91 8860909760</p>
-<p>📧 codecalfo@gmail.com</p>
-<p>📍 Lucknow, India</p>
-
-<div style="margin-top:15px;">
-
-<a href="#" class="social">🌐</a>
-<a href="#" class="social">📘</a>
-<a href="#" class="social">📸</a>
-<a href="#" class="social">💼</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- BOTTOM -->
-<div style="text-align:center;margin-top:40px;border-top:1px solid #2c3e50;padding-top:15px;color:#aaa;">
-© 2026 Code Calfo. All Rights Reserved.
-</div>
-
-</div>
-
-</footer>
-
-<a href="https://wa.me/918860909760?text=Hi,%20I%20need%20a%20website%20for%20my%20Business." 
-   target="_blank" 
-   class="whatsapp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-</a>
-<script>
-
-// ================= SLIDER =================
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function showSlide(){
-    slides.forEach(s => s.classList.remove("active"));
-    slides[index].classList.add("active");
-}
-
-function nextSlide(){
-    index = (index + 1) % slides.length;
-    showSlide();
-}
-
-function prevSlide(){
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide();
-}
-
-setInterval(nextSlide, 4000);
-
-
-// ================= COUNTER (FIXED) =================
-document.querySelectorAll('.counter').forEach(counter => {
-
-    let target = parseInt(counter.getAttribute("data-target"));
-    let count = 0;
-
-    function update(){
-        let increment = Math.ceil(target / 100);
-
-        if(count < target){
-            count += increment;
-            counter.innerText = count;
-            setTimeout(update, 30);
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Code Calfo home">
+        <span class="logo-mark">&lt;/&gt;</span>
+        Code <span>Calfo</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary btn-small header-cta">
+          Start a Project
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home" aria-label="Featured services">
+      <article
+        class="hero-slide active"
+        style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85');"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-label">
+              <span></span>
+              Digital solutions for modern businesses
+            </div>
+
+            <h1>
+              Building Digital Solutions
+              <span>That Drive Growth</span>
+            </h1>
+
+            <p>
+              Modern websites, intelligent business systems, and scalable
+              software engineered around your business goals.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#services" class="btn btn-primary">
+                Explore Our Services →
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                Start a Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="hero-slide"
+        style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2000&q=85');"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-label">
+              <span></span>
+              Technology built around your workflow
+            </div>
+
+            <h1>
+              Software Designed
+              <span>Around Your Business</span>
+            </h1>
+
+            <p>
+              Streamline operations, automate repetitive workflows, and
+              simplify complex business challenges with custom software.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#solutions" class="btn btn-primary">
+                Explore Solutions →
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="hero-slide"
+        style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=85');"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-label">
+              <span></span>
+              From idea to digital product
+            </div>
+
+            <h1>
+              Turn Your Digital Vision
+              <span>Into Reality</span>
+            </h1>
+
+            <p>
+              Build high-performance websites, e-commerce platforms, mobile
+              applications, and business systems with a reliable technology
+              partner.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#services" class="btn btn-primary">
+                View Services →
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                Let’s Talk
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="hero-controls">
+        <div class="slider-arrows">
+          <button class="slider-arrow" id="prevSlide" aria-label="Previous slide">
+            ←
+          </button>
+          <button class="slider-arrow" id="nextSlide" aria-label="Next slide">
+            →
+          </button>
+        </div>
+
+        <div class="slider-dots" id="sliderDots" aria-label="Choose slide">
+          <button class="slider-dot active" aria-label="Go to slide 1"></button>
+          <button class="slider-dot" aria-label="Go to slide 2"></button>
+          <button class="slider-dot" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip" aria-label="Our approach">
+      <div class="container trust-inner">
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <div>
+            <strong>Modern Technology</strong>
+            <small>Current development practices</small>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">◈</div>
+          <div>
+            <strong>Business Focused</strong>
+            <small>Solutions for real requirements</small>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">✓</div>
+          <div>
+            <strong>Quality Driven</strong>
+            <small>Clean and maintainable work</small>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">↗</div>
+          <div>
+            <strong>Scalable Solutions</strong>
+            <small>Built for future growth</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=85"
+            alt="Team collaborating on software development"
+            loading="lazy"
+          />
+
+          <div class="about-badge">
+            <strong>Code</strong>
+            <span>Technology that supports your business journey.</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="eyebrow">About Code Calfo</div>
+
+          <h2>Technology that turns ideas into practical solutions.</h2>
+
+          <p>
+            Code Calfo is a web and software development company focused on
+            creating modern, scalable, and user-friendly digital products.
+          </p>
+
+          <p>
+            We work with businesses, startups, and organizations to develop
+            websites, business applications, e-commerce platforms, billing
+            systems, and customized software.
+          </p>
+
+          <ul class="check-list">
+            <li>Solutions designed around your business requirements</li>
+            <li>Responsive and user-friendly interfaces</li>
+            <li>Scalable architecture and maintainable code</li>
+            <li>Clear communication throughout the project</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-dark">
+            Discuss Your Requirement →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section-light" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Services</div>
+          <h2>Complete digital solutions for your business.</h2>
+          <p>
+            From business websites to custom software systems, we help you
+            create technology that is practical, reliable, and ready to grow.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card reveal">
+            <div class="card-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Responsive, fast, and professional websites that represent your
+              brand and support your business goals.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">💻</div>
+            <h3>Custom Software</h3>
+            <p>
+              Business applications designed to automate workflows and solve
+              your specific operational challenges.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🛒</div>
+            <h3>E-commerce</h3>
+            <p>
+              Online stores with product management, order processing, and
+              payment gateway integration.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">📱</div>
+            <h3>Mobile Applications</h3>
+            <p>
+              Mobile application solutions that help businesses connect with
+              customers through mobile platforms.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🧾</div>
+            <h3>Billing Software</h3>
+            <p>
+              Billing and invoicing systems that help simplify transactions,
+              records, and business operations.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">📊</div>
+            <h3>SEO & Digital Marketing</h3>
+            <p>
+              Improve your online visibility with search-friendly websites and
+              digital growth strategies.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🛠️</div>
+            <h3>Maintenance & Support</h3>
+            <p>
+              Ongoing improvements, bug fixes, updates, and technical support
+              for your digital products.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🔐</div>
+            <h3>Security Solutions</h3>
+            <p>
+              Security-conscious development practices to help protect your
+              applications and business data.
+            </p>
+            <a href="#contact" class="card-link">Discuss Service →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section" id="values">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Principles</div>
+          <h2>Built on values that matter.</h2>
+          <p>
+            We believe successful technology projects require trust,
+            communication, quality, and a clear understanding of business
+            needs.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <article class="value-card reveal">
+            <div class="card-icon">🎯</div>
+            <h3>Mission</h3>
+            <p>
+              Empower businesses through useful, reliable, and innovative
+              digital solutions.
+            </p>
+          </article>
+
+          <article class="value-card reveal">
+            <div class="card-icon">🌍</div>
+            <h3>Vision</h3>
+            <p>
+              Become a trusted technology partner for businesses and
+              organizations.
+            </p>
+          </article>
+
+          <article class="value-card reveal">
+            <div class="card-icon">💡</div>
+            <h3>Innovation</h3>
+            <p>
+              Use thoughtful technology to create better and simpler
+              experiences.
+            </p>
+          </article>
+
+          <article class="value-card reveal">
+            <div class="card-icon">🤝</div>
+            <h3>Trust</h3>
+            <p>
+              Maintain transparency, accountability, and long-term
+              relationships.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section section-light" id="solutions">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Business Solutions</div>
+          <h2>Technology for different business needs.</h2>
+          <p>
+            Our solutions can be adapted to different industries and
+            operational requirements.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+              alt="Retail and e-commerce solution"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Retail & E-commerce</h3>
+              <p>Online stores, product management, billing, and order systems.</p>
+            </div>
+          </article>
+
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80"
+              alt="Finance and business management"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Finance & Business</h3>
+              <p>Business workflows, records, reports, and management systems.</p>
+            </div>
+          </article>
+
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
+              alt="Healthcare software solution"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Healthcare</h3>
+              <p>Patient management, appointments, billing, and operational tools.</p>
+            </div>
+          </article>
+
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+              alt="Education technology solution"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Education</h3>
+              <p>Portals, registrations, student records, and workflow systems.</p>
+            </div>
+          </article>
+
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+              alt="Corporate software solution"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Corporate Operations</h3>
+              <p>Employee management, attendance, reports, and automation.</p>
+            </div>
+          </article>
+
+          <article class="solution-card reveal">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+              alt="Custom digital product development"
+              loading="lazy"
+            />
+            <div class="solution-overlay">
+              <h3>Custom Products</h3>
+              <p>Tailored digital products built around your unique idea.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Process</div>
+          <h2>A clear process from idea to delivery.</h2>
+          <p>
+            We follow a structured approach to understand your needs and
+            deliver a solution that matches your goals.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <div class="process-number">01</div>
+            <h3>Understand</h3>
+            <p>
+              We discuss your requirements, goals, audience, and business
+              challenges.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-number">02</div>
+            <h3>Plan</h3>
+            <p>
+              We define the features, technology, timeline, and implementation
+              approach.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-number">03</div>
+            <h3>Develop</h3>
+            <p>
+              We build, test, and refine the solution with regular communication.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <div class="process-number">04</div>
+            <h3>Deliver</h3>
+            <p>
+              We provide the final product and discuss future support and
+              improvements.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <h2>Have a digital idea? Let’s build it together.</h2>
+          <p>
+            Tell us about your project and discover how Code Calfo can help
+            transform your idea into a practical digital solution.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary">Start a Project →</a>
+          <a href="tel:+918860909760" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-light" id="faq">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions.</h2>
+          <p>
+            Here are some common questions about our services and development
+            process.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              What services does Code Calfo provide?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We provide web development, custom software development,
+                e-commerce solutions, mobile applications, billing software,
+                SEO, maintenance, and technical support.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can you develop software according to our requirements?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. We can discuss your business workflow and develop a
+                customized solution based on your requirements.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you provide support after delivery?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Support, maintenance, updates, and future improvements can be
+                discussed according to the requirements of your project.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How long does a project take?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                The timeline depends on the project's scope, features,
+                integrations, and complexity. We discuss the expected timeline
+                before development begins.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How can I start a project with Code Calfo?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                You can contact us through phone, email, WhatsApp, or the
+                contact form on this page. Share your requirements and we will
+                discuss the next steps.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <div class="eyebrow">Contact Us</div>
+          <h2>Let’s discuss your next project.</h2>
+
+          <p>
+            Have an idea, business requirement, or software challenge? Contact
+            us and let’s explore the right solution for you.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+918860909760">+91 8860909760</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:codecalfo@gmail.com">codecalfo@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div>
+                <strong>Location</strong>
+                <p>Lucknow, India</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">💬</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a
+                  href="https://wa.me/918860909760"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat with us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal">
+          <h3>Send us a message</h3>
+          <p>
+            Fill in the details below. Your email application will open with
+            the message prepared.
+          </p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter your phone"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Required Service</label>
+                <select id="service" name="service">
+                  <option value="">Select a service</option>
+                  <option>Web Development</option>
+                  <option>Custom Software</option>
+                  <option>E-commerce</option>
+                  <option>Mobile App Development</option>
+                  <option>Billing Software</option>
+                  <option>SEO & Digital Marketing</option>
+                  <option>Maintenance & Support</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us about your project..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Send Message →
+            </button>
+
+            <div class="form-message" id="formMessage" role="status">
+              Your email application is being opened.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#home" class="logo footer-logo">
+            <span class="logo-mark">&lt;/&gt;</span>
+            Code <span>Calfo</span>
+          </a>
+
+          <p class="footer-description">
+            We build modern websites, scalable software, and digital solutions
+            that help businesses move forward.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Company</h3>
+          <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#process">Our Process</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Services</h3>
+          <div class="footer-links">
+            <a href="#services">Web Development</a>
+            <a href="#services">Custom Software</a>
+            <a href="#services">E-commerce</a>
+            <a href="#services">Mobile Applications</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Contact</h3>
+          <div class="footer-contact">
+            <a href="tel:+918860909760">+91 8860909760</a>
+            <a href="mailto:codecalfo@gmail.com">codecalfo@gmail.com</a>
+            <span>Lucknow, India</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> Code Calfo. All Rights Reserved.
+        </p>
+
+        <div class="social-links">
+          <a href="#contact" aria-label="Contact Code Calfo">✉</a>
+          <a
+            href="https://wa.me/918860909760"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            ☎
+          </a>
+          <a href="#home" aria-label="Back to home">↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/918860909760?text=Hi%20Code%20Calfo,%20I%20want%20to%20discuss%20a%20project."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with Code Calfo on WhatsApp"
+  >
+    ☎
+  </a>
+
+  <!-- Back to top -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const header = document.getElementById("siteHeader");
+      const menuToggle = document.getElementById("menuToggle");
+      const mainNav = document.getElementById("mainNav");
+      const navLinks = document.querySelectorAll(".main-nav a");
+      const backToTop = document.getElementById("backToTop");
+
+      /* Header scroll effect */
+      function updateHeader() {
+        if (window.scrollY > 20) {
+          header.classList.add("scrolled");
         } else {
-            counter.innerText = target;
+          header.classList.remove("scrolled");
         }
-    }
 
-    update();
-});
-
-
-// ================= FAQ TOGGLE =================
-document.querySelectorAll(".faq-question").forEach(q => {
-    q.addEventListener("click", () => {
-
-        let answer = q.nextElementSibling;
-        let icon = q.querySelector("span");
-
-        let isOpen = answer.style.display === "block";
-
-        // Close all
-        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-        document.querySelectorAll(".faq-question span").forEach(s => s.innerText = "+");
-
-        // Open clicked
-        if(!isOpen){
-            answer.style.display = "block";
-            icon.innerText = "-";
+        if (window.scrollY > 500) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
         }
-    });
-});
+      }
 
-</script>
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      updateHeader();
+
+      /* Mobile menu */
+      function closeMenu() {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+      }
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+        menuToggle.textContent = isOpen ? "×" : "☰";
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      /* Hero slider */
+      const slides = Array.from(document.querySelectorAll(".hero-slide"));
+      const dots = Array.from(document.querySelectorAll(".slider-dot"));
+      const previousButton = document.getElementById("prevSlide");
+      const nextButton = document.getElementById("nextSlide");
+      const hero = document.querySelector(".hero");
+
+      let currentSlide = 0;
+      let sliderTimer = null;
+      let isPaused = false;
+
+      function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("active", slideIndex === currentSlide);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === currentSlide);
+          dot.setAttribute("aria-current", dotIndex === currentSlide ? "true" : "false");
+        });
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function previousSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      function stopSlider() {
+        if (sliderTimer) {
+          clearInterval(sliderTimer);
+          sliderTimer = null;
+        }
+      }
+
+      function startSlider() {
+        stopSlider();
+
+        if (
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+          !isPaused
+        ) {
+          sliderTimer = setInterval(nextSlide, 6000);
+        }
+      }
+
+      previousButton.addEventListener("click", () => {
+        previousSlide();
+        startSlider();
+      });
+
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        startSlider();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showSlide(index);
+          startSlider();
+        });
+      });
+
+      hero.addEventListener("mouseenter", () => {
+        isPaused = true;
+        stopSlider();
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        isPaused = false;
+        startSlider();
+      });
+
+      hero.addEventListener("focusin", () => {
+        isPaused = true;
+        stopSlider();
+      });
+
+      hero.addEventListener("focusout", () => {
+        isPaused = false;
+        startSlider();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          nextSlide();
+          startSlider();
+        }
+
+        if (event.key === "ArrowLeft") {
+          previousSlide();
+          startSlider();
+        }
+      });
+
+      showSlide(0);
+      startSlider();
+
+      /* FAQ accordion */
+      const faqQuestions = document.querySelectorAll(".faq-question");
+
+      faqQuestions.forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+
+          document.querySelectorAll(".faq-item").forEach((faqItem) => {
+            faqItem.classList.remove("open");
+
+            const faqButton = faqItem.querySelector(".faq-question");
+            faqButton.setAttribute("aria-expanded", "false");
+          });
+
+          if (!isOpen) {
+            item.classList.add("open");
+            question.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      /* Active navigation */
+      const sections = document.querySelectorAll("main section[id]");
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === "#" + entry.target.id
+                );
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-35% 0px -55% 0px",
+        }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      /* Scroll reveal */
+      const revealElements = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+          }
+        );
+
+        revealElements.forEach((element) => revealObserver.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("visible"));
+      }
+
+      /* Back to top */
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      /* Contact form */
+      const contactForm = document.getElementById("contactForm");
+      const formMessage = document.getElementById("formMessage");
+
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        const name = String(formData.get("name") || "").trim();
+        const email = String(formData.get("email") || "").trim();
+        const phone = String(formData.get("phone") || "").trim();
+        const service = String(formData.get("service") || "").trim();
+        const message = String(formData.get("message") || "").trim();
+
+        const subject = encodeURIComponent(
+          "New Project Enquiry from " + name
+        );
+
+        const body = encodeURIComponent(
+          "Name: " +
+            name +
+            "\nEmail: " +
+            email +
+            "\nPhone: " +
+            phone +
+            "\nService: " +
+            service +
+            "\n\nProject Details:\n" +
+            message
+        );
+
+        formMessage.style.display = "block";
+
+        window.location.href =
+          "mailto:codecalfo@gmail.com?subject=" + subject + "&body=" + body;
+      });
+
+      /* Current year */
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
